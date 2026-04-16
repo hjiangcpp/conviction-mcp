@@ -3,6 +3,7 @@ data/config.yaml
 data/portfolio.json
 data/posts/
 data/analysis/
+data/screenshots/
 *.cookie
 *.session
 

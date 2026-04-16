@@ -1,0 +1,84 @@
+# conviction-mcp configuration
+# Copy this file to data/config.yaml and fill in your credentials.
+# data/config.yaml is gitignored — it will never be committed.
+
+# ── Zsxq ────────────────────────────────────────────────────────────────────
+zsxq:
+  # Your Zsxq session cookie. Get it from browser DevTools after logging in.
+  # Expires periodically — re-paste when the scraper reports an auth error.
+  cookie: "your-zsxq-session-cookie"
+
+  # IDs of the Zsxq groups you want to sync.
+  # Find the group ID in the URL: zsxq.com/group/<group_id>
+  group_ids:
+    - "your-group-id"
+
+# ── AI ──────────────────────────────────────────────────────────────────────
+ai:
+  provider: "anthropic"   # anthropic | openai
+  api_key: "sk-ant-..."
+
+# ── Broker accounts ─────────────────────────────────────────────────────────
+# List each account with its risk style and target allocation.
+# style: conservative | moderate | aggressive
+# target_allocation values must sum to 100.
+accounts:
+  - broker: "Schwab"
+    style: "conservative"
+    purpose: "retirement"
+    target_allocation:
+      equity: 50
+      bond: 40
+      cash: 10
+
+  - broker: "Robinhood"
+    style: "aggressive"
+    purpose: "trading"
+    target_allocation:
+      equity: 90
+      cash: 10
+
+  - broker: "moomoo"
+    style: "moderate"
+    purpose: "general"
+    target_allocation:
+      equity: 70
+      bond: 20
+      cash: 10
+
+# ── Position sizing rules (applied across all accounts) ─────────────────────
+investment_profile:
+  position_sizing: "kelly"    # kelly | fixed | percent_risk
+  max_single_position: 10     # max % of account in any single position
+  max_sector_exposure: 30     # max % of account in any single sector
+
+# ── Broker sync (SnapTrade) ──────────────────────────────────────────────────
+# Required only if you want automated position sync (Phase 2).
+# Leave commented out for Phase 1 (screenshot OCR).
+# brokers:
+#   snaptrade_client_id: "..."
+#   snaptrade_consumer_key: "..."
+#   snaptrade_user_id: "..."     # generated after OAuth
+
+# ── Market data ─────────────────────────────────────────────────────────────
+# Defaults to yfinance (free, no config needed).
+# Uncomment and configure to upgrade to a richer data source.
+market_data:
+  provider: "yfinance"      # yfinance | moomoo | tiger | ibkr | polygon | finnhub
+
+  # moomoo OpenD (run OpenD locally first)
+  # provider: "moomoo"
+  # moomoo_host: "127.0.0.1"
+  # moomoo_port: 11111
+
+  # Polygon.io
+  # provider: "polygon"
+  # polygon_api_key: "your-api-key"
+
+  # Finnhub
+  # provider: "finnhub"
+  # finnhub_api_key: "your-api-key"
+
+  # IBKR TWS
+  # provider: "ibkr"
+  # ibkr_port: 7497

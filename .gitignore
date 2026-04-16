@@ -1,0 +1,47 @@
+# credentials and local data — never commit these
+data/config.yaml
+data/portfolio.json
+data/posts/
+data/analysis/
+*.cookie
+*.session
+
+# keep the data directory
+!data/.gitkeep
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+env/
+dist/
+build/
+*.egg-info/
+.eggs/
+
+# uv
+.uv/
+
+# env files
+.env
+.env.*
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# test artifacts
+.pytest_cache/
+.coverage
+htmlcov/

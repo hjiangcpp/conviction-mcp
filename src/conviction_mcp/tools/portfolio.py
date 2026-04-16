@@ -1,11 +1,9 @@
 """sync_portfolio tool — parse broker screenshot or sync via SnapTrade."""
 
-from mcp.server.fastmcp import tool
 from conviction_mcp.utils.ocr import parse_screenshot
 from conviction_mcp.utils.config import load_config
 
 
-@tool
 async def sync_portfolio(image_path: str | None = None, broker: str | None = None) -> dict:
     """
     Sync broker positions into portfolio.json.

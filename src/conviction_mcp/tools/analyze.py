@@ -1,10 +1,8 @@
 """analyze tool — check position alignment with investment philosophy and blogger opinions."""
 
-from mcp.server.fastmcp import tool
 from conviction_mcp.utils.config import load_config
 
 
-@tool
 async def analyze(portfolio: dict, posts: list[dict]) -> str:
     """
     Analyze current positions against the user's investment philosophy and blogger opinions.

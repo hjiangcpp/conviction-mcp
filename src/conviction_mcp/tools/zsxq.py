@@ -1,10 +1,8 @@
 """sync_zsxq tool — scrape paid content from a Zsxq group."""
 
-from mcp.server.fastmcp import tool
 from conviction_mcp.utils.config import load_config
 
 
-@tool
 async def sync_zsxq(group_id: str | None = None, limit: int = 20) -> list[dict]:
     """
     Scrape the latest posts from a Zsxq group using the session cookie in config.yaml.

@@ -3,7 +3,7 @@
 from pathlib import Path
 import yaml
 
-CONFIG_PATH = Path(__file__).parents[4] / "data" / "config.yaml"
+CONFIG_PATH = Path(__file__).parents[3] / "data" / "config.yaml"
 
 
 def load_config() -> dict:
